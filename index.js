@@ -5,7 +5,7 @@ const Config = require("./config.json");
 
 const dotenv = require("dotenv");
 dotenv.config();
-const { DISCORD_BOT_TOKEN, ALLOWED_ORIGIN } = process.env;
+const { DISCORD_BOT_TOKEN } = process.env;
 
 const express = require("express");
 const app = express();
@@ -15,7 +15,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: ALLOWED_ORIGIN,
+    origin: Config.allowedOrigin,
     methods: ["GET", "POST"],
     credentials: true,
   })
@@ -28,7 +28,7 @@ const {
   GuildMessages,
   MessageContent,
   GuildVoiceStates,
-  GuildPresences
+  GuildPresences,
 } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember, Channel } = Partials;
 
@@ -40,7 +40,7 @@ const client = new Client({
     GuildMessages,
     MessageContent,
     GuildVoiceStates,
-    GuildPresences
+    GuildPresences,
   ],
 });
 

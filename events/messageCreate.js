@@ -1,14 +1,13 @@
-const { prefix } = require("../config.json");
+const Config = require("../config.json");
 
 module.exports = {
   name: "messageCreate",
   async execute(client, message) {
-    if (message.author.bot) return;
+    if (message.author.bot || message.guild.id !== Config.serverId) return;
 
-    if (!message.content.startsWith(prefix))
-      return;
+    if (!message.content.startsWith(Config.prefix)) return;
 
-    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const args = message.content.slice(Config.prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
 
     const command = client.commands.get(commandName);
