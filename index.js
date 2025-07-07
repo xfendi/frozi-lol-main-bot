@@ -90,7 +90,7 @@ app.post("/presence", async (req, res) => {
 });
 
 // --- Start server ---
-const PORT = process.env.PORT || 3001;
+const PORT = Config.port || 4000;
 app.listen(PORT, () => {
   console.log(`[INFO] Server running on port ${Config.port}`.magenta);
 });
