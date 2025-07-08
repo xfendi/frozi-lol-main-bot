@@ -5,7 +5,7 @@ function getProfileInfoEmbed(data) {
   const embed = new EmbedBuilder()
     .setTitle(`${data.username}'s Profile`)
     .setColor(Config.embedColorPrimary)
-    .setThumbnail(data.avatarURL || data.discordClean.avatarURL)
+    .setThumbnail(data.avatarURL || data.discordClean?.avatarURL)
     .setDescription(data.customize?.description || "No description provided.")
     .addFields(
       {
