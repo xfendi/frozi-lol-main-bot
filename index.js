@@ -71,8 +71,7 @@ app.post("/presence", async (req, res) => {
 
     const avatarURL = member.displayAvatarURL({
       size: 512,
-      extension: "gif",
-      forceStatic: false,
+      dynamic: true,
     });
 
     const decorationURL = member.user.avatarDecorationURL();
